@@ -7,7 +7,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
-	"log"
 	"net/http"
 	"os"
 	"strings"
@@ -90,7 +89,7 @@ func gqlRepos(owner string) ([]string, []int, error) {
 // graphqlCmd represents the graphql command
 var graphqlCmd = &cobra.Command{
 	Use:   "graphql",
-	Short: "Get list of repos using github GraphQl api",
+	Short: "$gh-cobra <owner>  Get list of repos using github GraphQl api",
 	Long: `For the specified <owner>, get the list of public repos using the github GraphQl api.
 	Format : gh-cobra graphql <owner>
 	Example: gh-cobra graphql octocat
@@ -106,7 +105,8 @@ var graphqlCmd = &cobra.Command{
 
 		names, stars, err := gqlRepos(owner)
 		if err != nil {
-			log.Fatal(err)
+			fmt.Println(err)
+			fmt.Println("This command requires a valid Github authentication token in a GITHUB_TOKEN environment variable.")
 		}
 
 		if len(names) == 0 {
