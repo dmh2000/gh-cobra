@@ -11,16 +11,15 @@ import (
 
 // explainCmd represents the explain command
 var explainCmd = &cobra.Command{
-	Use:   "explain",
-	Short: "$gh-cobra explain <bash utility name> : Use OpenAI to get bash help",
+	Use:   "explain [bash utility name,...]",
+	Short: "$gh-cobra explain [bash utility name,...] : Use OpenAI to get bash help",
 	Long: `
 	This command uses OpenAI to get help for bash utilities,  using the Langchain API.
-	This command requires an OpenAI API Key in an environment variable named OPENAI_API_KEY.
 	It takes a list of bash utility names as arguments and returns the help for each utility.
-	Format : gh-cobra explain <utility name> <utility name> ...
-	Where <question> is a typical AI chat prompt. The command will concatenate
-	all arguments given after the exaplain command
-	Example:gh-cobra explain What is the capital of France?`,
+	Format : gh-cobra explain [utility name,...]
+	Example: gh-cobra explain ls,cat,echo
+	This command requires an OpenAI API Key in an environment variable named OPENAI_API_KEY.
+	`,
 	Run: func(cmd *cobra.Command, args []string) {
 		if len(args) < 1 {
 			fmt.Println("Please provide the utility name")

@@ -12,14 +12,15 @@ import (
 // rootCmd represents the base command when called without any subcommands
 var rootCmd = &cobra.Command{
 	Use:   "gh-cobra",
-	Short: "A simple application of Github Cobra with subcommands",
+	Short: "A simple application of GitHub Cobra with subcommands",
 	Long: `
-	A simple application of Github Cobra with subcommands
+	A simple application of GitHub Cobra with subcommands
 	Commands:
-	1. gh-cobra api <owner> : Get list repos using github REST api
-	2. gh-cobra graphql <owner> : Get list of repos using github GraphQl api
-	3. gh-cobra explain <question> : Use OpenAI to answer questions about Linux utilities
-	4. gh-cobra help : Help about any command`,
+	1. gh-cobra api [owner] : Get list repos using github REST api
+	2. gh-cobra graphql [owner] : Get list of repos from github GraphQl api using manual query string
+	3. gh-cobra client [owner] : Get list of repos using github GraphQl api using shurcool/graphql client
+	4. gh-cobra explain [question] : Use OpenAI to answer questions about Linux utilities
+	5. gh-cobra help : Help about any command`,
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.

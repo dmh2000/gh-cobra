@@ -1,19 +1,26 @@
 # gh-cobra
 
-A simple exercise using Github Cobra CLI to create an app that accesses the Github REST and GraphQl API's.
+A simple exercise using GitHub Cobra CLI to create an app that accesses the GitHub REST and GraphQl API's.
 It also gives help on basic Bash utilities.
+
+Note : I use GitHub Copilot in Visual Studio Code, which made it much easier and quicker to get working. Especially working with the GitHub GraphQL API
 
 ## Commands
 
 - $gh-cobra api
-  - Print a list of public repositories on Github that belong to a specified owner.
-  - Uses the Github REST API
+  - Print a list of public repositories on GitHub that belong to a specified owner.
+  - Uses the GitHub REST API
   - see cmd/api.go
 - $gh-cobra graphql
-  - Print a list of public repositories on Github that belong to a specified owner.
-  - Uses the Github Graphql API
-  - This command requires a Github bearer token in the environment variable GITHUB_TOKEN
+  - Print a list of public repositories on GitHub that belong to a specified owner.
+  - Uses the GitHub Graphql API with a manual POST request
+  - This command requires a GitHub bearer token in the environment variable GITHUB_TOKEN
   - see cmd/graphql.go
+- $gh-cobra client
+  - Print a list of public repositories on GitHub that belong to a specified owner.
+  - Uses the GitHub Graphql API using the shurcooL/graphql client package
+  - This command requires a GitHub bearer token in the environment variable GITHUB_TOKEN
+  - see cmd/client.go
 - $gh-cobra explain
   - print help for basic Linux Bash utilties
   - This command requires an OpenAI api key in the environment variable OPENAI_API_KEY

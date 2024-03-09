@@ -34,9 +34,9 @@ func apiRepos(ctx context.Context, owner string) ([]string, []int, error) {
 // apiCmd represents the api command
 var apiCmd = &cobra.Command{
 	Use:   "api",
-	Short: "$gh-cobra <owner> Get list repos using github REST api",
-	Long: `For the specified <owner>, get the list of public repos using the github REST api.
-	Format : gh-cobra api <owner>
+	Short: "$gh-cobra [owner] Get list repos using github REST api",
+	Long: `For the specified [owner], get the list of public repos using the github REST api.
+	Format : gh-cobra api [owner]
 	Example: gh-cobra api octocat
 	This command does not require authentication`,
 	Run: func(cmd *cobra.Command, args []string) {
