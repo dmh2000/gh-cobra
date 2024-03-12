@@ -86,7 +86,6 @@ func gqlRepos(owner string) ([]string, []int, error) {
 	return names, stars, nil
 }
 
-// graphqlCmd represents the graphql command
 var graphqlCmd = &cobra.Command{
 	Use:   "graphql [owner]",
 	Short: "$gh-cobra [owner]  Get list of repos using github GraphQl api",

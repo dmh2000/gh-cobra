@@ -18,7 +18,7 @@ var rootCmd = &cobra.Command{
 	Commands:
 	1. gh-cobra api [owner] : Get list repos using github REST api
 	2. gh-cobra graphql [owner] : Get list of repos from github GraphQl api using manual query string
-	3. gh-cobra client [owner] : Get list of repos using github GraphQl api using shurcool/graphql client
+	3. gh-cobra shurcool [owner] : Get list of repos using github GraphQl api using shurcooL/graphql client
 	4. gh-cobra explain [question] : Use OpenAI to answer questions about Linux utilities
 	5. gh-cobra help : Help about any command`,
 }

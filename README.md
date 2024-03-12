@@ -16,11 +16,11 @@ Note : I use GitHub Copilot in Visual Studio Code, which made it much easier and
   - Uses the GitHub Graphql API with a manual POST request
   - This command requires a GitHub bearer token in the environment variable GITHUB_TOKEN
   - see cmd/graphql.go
-- $gh-cobra client
+- $gh-cobra shurcool
   - Print a list of public repositories on GitHub that belong to a specified owner.
   - Uses the GitHub Graphql API using the shurcooL/graphql client package
   - This command requires a GitHub bearer token in the environment variable GITHUB_TOKEN
-  - see cmd/client.go
+  - see cmd/shurcool.go
 - $gh-cobra explain
   - print help for basic Linux Bash utilties
   - This command requires an OpenAI api key in the environment variable OPENAI_API_KEY

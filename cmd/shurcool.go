@@ -69,14 +69,13 @@ func fetchRepos(owner string) ([]string, []int, error) {
 	return names, stars, nil
 }
 
-// clientCmd represents the client command
 var clientCmd = &cobra.Command{
-	Use:   "client [owner]",
-	Short: "client [owner] print list of repositories from github graphql search",
+	Use:   "shurcool [owner]",
+	Short: "shurcool [owner] print list of repositories from github graphql search",
 	Long: `
-	print list of repositories from github graphql search api using shurcool/graphql package
-	Format : gh-cobra client [owner]
-	Example: gh-cobra client octocat
+	print list of repositories from github graphql search api using shurcooL/graphql package
+	Format : gh-cobra shurcool [owner]
+	Example: gh-cobra shurcool octocat
 	This command requires a GitHub authentication token in a GITHUB_TOKEN environment variable
 	`,
 	Run: func(cmd *cobra.Command, args []string) {

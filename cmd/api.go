@@ -31,7 +31,6 @@ func apiRepos(ctx context.Context, owner string) ([]string, []int, error) {
 	return names, stars, nil
 }
 
-// apiCmd represents the api command
 var apiCmd = &cobra.Command{
 	Use:   "api",
 	Short: "$gh-cobra [owner] Get list repos using github REST api",
