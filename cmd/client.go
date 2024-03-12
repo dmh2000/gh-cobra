@@ -6,7 +6,6 @@ package cmd
 import (
 	"context"
 	"fmt"
-	"log"
 	"os"
 
 	"github.com/shurcooL/graphql"
@@ -31,7 +30,10 @@ var repos struct {
 		Edges []struct {
 			Node struct {
 				SearchedRepository struct {
-					Name string `graphql:"name"`
+					Name       string `graphql:"name"`
+					StarGazers struct {
+						TotalCount int `graphql:"totalCount"`
+					} `graphql:"stargazers"`
 				} `graphql:"... on Repository"`
 			}
 		}
@@ -40,7 +42,7 @@ var repos struct {
 
 var variables = map[string]any{}
 
-func fetchRepos(owner string) []string {
+func fetchRepos(owner string) ([]string, []int, error) {
 	src := oauth2.StaticTokenSource(
 		&oauth2.Token{AccessToken: os.Getenv("GITHUB_TOKEN")},
 	)
@@ -55,14 +57,16 @@ func fetchRepos(owner string) []string {
 	// execute the query
 	err := client.Query(context.Background(), &repos, variables)
 	if err != nil {
-		log.Fatal(err.Error())
+		return nil, nil, err
 	}
 
-	var repoNames []string
+	var names []string
+	var stars []int
 	for _, edge := range repos.Search.Edges {
-		repoNames = append(repoNames, edge.Node.SearchedRepository.Name)
+		names = append(names, edge.Node.SearchedRepository.Name)
+		stars = append(stars, edge.Node.SearchedRepository.StarGazers.TotalCount)
 	}
-	return repoNames
+	return names, stars, nil
 }
 
 // clientCmd represents the client command
@@ -84,9 +88,18 @@ var clientCmd = &cobra.Command{
 		owner := args[0]
 		fmt.Println(owner)
 
-		repoNames := fetchRepos(owner)
-		for i, name := range repoNames {
-			fmt.Printf("%d. %s\n", i+1, name)
+		names, stars, err := fetchRepos(owner)
+		if err != nil {
+			fmt.Println(err)
+			return
+		}
+
+		for i, name := range names {
+			if i < 9 {
+				fmt.Printf("%d. %*s - %d\n", i+1, -33, name, stars[i])
+			} else {
+				fmt.Printf("%d. %*s - %d\n", i+1, -32, name, stars[i])
+			}
 		}
 	},
 }
