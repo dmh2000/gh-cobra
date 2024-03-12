@@ -25,13 +25,7 @@ var explainCmd = &cobra.Command{
 			fmt.Println("Please provide the utility name")
 			return
 		}
-		first := true
 		for _, util := range args {
-			if first {
-				fmt.Println("------------------------------------------------------------------------")
-				first = false
-			}
-
 			if lookupUtil(util) {
 				result, err := Explain(util)
 				if err != nil {

@@ -90,6 +90,7 @@ var clientCmd = &cobra.Command{
 		names, stars, err := fetchRepos(owner)
 		if err != nil {
 			fmt.Println(err)
+			fmt.Println("Check if the GITHUB_TOKEN is set")
 			return
 		}
 

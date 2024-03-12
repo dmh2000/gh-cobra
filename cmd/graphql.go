@@ -73,7 +73,10 @@ func gqlRepos(owner string) ([]string, []int, error) {
 	}
 
 	var result repoData
-	json.Unmarshal(body, &result)
+	err = json.Unmarshal(body, &result)
+	if err != nil {
+		return nil, nil, err
+	}
 
 	names := []string{}
 	stars := []int{}
@@ -110,6 +113,7 @@ var graphqlCmd = &cobra.Command{
 
 		if len(names) == 0 {
 			fmt.Println("No repos found")
+			fmt.Println("Check if the GITHUB_TOKEN is set")
 			return
 		}
 
