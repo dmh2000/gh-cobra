@@ -11,6 +11,10 @@ echo GRAPHQL shurcool : gh-cobra shurcool octocat
 echo "==============================================="
 ./gh-cobra shurcool octocat
 echo "==============================================="
+echo GRAPHQL gogithub : gh-cobra gogithub octocat
+echo "==============================================="
+./gh-cobra shurcool octocat
+echo "==============================================="
 echo LS, PWD, DU : gh-cobra explain ls pwd du
 echo "==============================================="
 ./gh-cobra explain ls pwd du

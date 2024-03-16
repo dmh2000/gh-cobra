@@ -4,6 +4,7 @@ go 1.21.0
 
 require (
 	github.com/google/go-github v17.0.0+incompatible
+	github.com/google/go-github/v60 v60.0.0
 	github.com/shurcooL/graphql v0.0.0-20230722043721-ed46e5a46466
 	github.com/spf13/cobra v1.8.0
 	github.com/tmc/langchaingo v0.1.5
