@@ -9,28 +9,28 @@ Note : I use GitHub Copilot in Visual Studio Code, which made it much easier and
 
 ## Commands
 
-- $gh-cobra api
+- $gh-cobra api [owner]
   - Print a list of public repositories on GitHub that belong to a specified owner.
   - Uses the GitHub REST API
   - see cmd/api.go
-- $gh-cobra graphql
+- $gh-cobra graphql [owner]
   - Print a list of public repositories on GitHub that belong to a specified owner.
   - Uses the GitHub Graphql API with a manual POST request
   - This command requires a GitHub bearer token in the environment variable GITHUB_TOKEN
   - see cmd/graphql.go
-- $gh-cobra shurcool
+- $gh-cobra shurcool [owner]
   - Print a list of public repositories on GitHub that belong to a specified owner.
   - Uses the GitHub Graphql API using the shurcooL/graphql client package.
   - This command requires a GitHub bearer token in the environment variable GITHUB_TOKEN
   - see cmd/shurcool.go
-- $gh-cobra gogithub
+- $gh-cobra gogithub [owner]
   - Print a list of public repositories on GitHub that belong to a specified owner.
   - Uses the GitHub Graphql API using the google/go-github client package.
   - This command requires a GitHub bearer token in the environment variable GITHUB_TOKEN
   - see cmd/shurcool.go
-- $gh-cobra explain
-  - print help for basic Linux Bash utilties
-  - This command requires an OpenAI api key in the environment variable OPENAI_API_KEY
+- $gh-cobra explain [ai prompt]
+  - print help for basic Linux Bash utilties using Chat-GPT and Langchain
+  - **This command requires an OpenAI api key in the environment variable OPENAI_API_KEY**
   - see cmd/explain.go and cmd/lc.go
 
 ## Notes
