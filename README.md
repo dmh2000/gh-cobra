@@ -3,6 +3,8 @@
 A simple exercise using GitHub Cobra CLI to create an app that accesses the GitHub REST and GraphQl API's.
 It also gives help on basic Bash utilities.
 
+You will need a Fine Grained Personal Access Token from Github for this to work. Login to Github, go to Developer Settings and request an access token. Copy it immediately and export it to an environment variable named GITHUB_TOKEN. 
+
 Note : I use GitHub Copilot in Visual Studio Code, which made it much easier and quicker to get working. Especially working with the GitHub GraphQL API
 
 ## Commands
